@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html th:replace="layout/masterLayout :: layout(~{::main})" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>New Todo</title>
+</head>
+<body>
+<main role="main">
+<h1>Add New Todo</h1>
+<form th:action="@{/todos}" th:object="${todo}" method="post">
+  <label>Date:</label>
+  <input type="date" th:field="*{date}" required />
+  <label>Task:</label>
+  <input type="text" th:field="*{description}" required />
+  <button type="submit">Save Task</button>
+</form>
+<a href="/todos" class="btn btn-outline-info">Back to List</a>
+</main>
+</body>
+</html>

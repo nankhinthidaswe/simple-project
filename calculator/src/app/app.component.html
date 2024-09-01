@@ -1,0 +1,29 @@
+<form [formGroup]="calculatorForm" (ngSubmit)="calculate()">
+  <div class="calculator">
+    <input type="number" formControlName="input1" placeholder="Enter first number">
+
+    <select formControlName="operator1">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <input type="number" formControlName="input2" placeholder="Enter second number">
+
+    <select formControlName="operator2">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <input type="number" formControlName="input3" placeholder="Enter third number">
+
+    <span>=</span>
+
+    <input type="text" [value]="result !== null ? result : ''" readonly>
+  </div>
+
+  <button type="submit">Calculate</button>
+</form>

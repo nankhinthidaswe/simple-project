@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html  th:replace="layout/masterLayout :: layout(~{::main})" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List</title>
+</head>
+
+<body>
+<main role="main">
+<h1>Todo List</h1>
+    <div class="container my-5">
+        <h2 class="my-2 text-justify">Pending Tasks</h2>
+        <div class="row">
+            <div class="col">
+                <div class="card-header">
+                    <h4 class="text-sm-center text-dark">To make your happy day</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Complete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="todo:${pendingTodos}">
+                        <td th:text="${todo.id}"></td>
+                        <td th:text="${todo.date}"></td>
+                        <td th:text="${todo.description}"></td>
+                        <td>
+                            <form  th:action="@{/todos/{id}/complete(id=${todo.id})}" method="post">
+                                <button type="submit" class="btn btn-success">Complete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <div class="container my-5">
+        <h2 class="my-2 text-justify">Completed Tasks</h2>
+        <div class="row">
+            <div class="col">
+                <div class="card-header">
+                    <h4 class="text-sm-center text-dark">Your are wonderful</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="todo:${completedTodos}">
+                        <td th:text="${todo.id}"></td>
+                        <td th:text="${todo.date}"></td>
+                        <td th:text="${todo.description}"></td>
+                        <td>
+                            <form th:action="@{/todos/{id}/delete (id=${todo.id})}" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <a href="/todos/new" class="btn btn-outline-info">Add New Task</a>
+
+</main>
+</body>
+</html>

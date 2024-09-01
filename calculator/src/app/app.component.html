@@ -1,6 +1,6 @@
 <form [formGroup]="calculatorForm" (ngSubmit)="calculate()">
   <div class="calculator">
-    <input type="number" formControlName="input1" placeholder="Enter first number">
+    <input type="number" formControlName="input1" placeholder="Enter first number" required>
 
     <select formControlName="operator1">
       <option value="+">+</option>
@@ -9,7 +9,7 @@
       <option value="/">/</option>
     </select>
 
-    <input type="number" formControlName="input2" placeholder="Enter second number">
+    <input type="number" formControlName="input2" placeholder="Enter second number " required>
 
     <select formControlName="operator2">
       <option value="+">+</option>
@@ -18,12 +18,20 @@
       <option value="/">/</option>
     </select>
 
-    <input type="number" formControlName="input3" placeholder="Enter third number">
+    <input type="number" formControlName="input3" placeholder="Enter third number " required>
+    
+      <button class="equal" type="submit">=</button>
 
-    <span>=</span>
-
-    <input type="text" [value]="result !== null ? result : ''" readonly>
+    <input class="result" type="text" [value]="result !== null ? result : ''" readonly placeholder="Result">
   </div>
+  
+    <button  class="reset" type ="button" (click)="reset()">Reset</button>
+  
 
-  <button type="submit">Calculate</button>
 </form>
+
+
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

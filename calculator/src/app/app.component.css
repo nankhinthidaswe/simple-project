@@ -1,18 +1,52 @@
 .calculator {
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 
-input[type="number"], select, span, input[readonly] {
-  margin: 5px;
-  padding: 8px;
+ input, select ,.result {
+  height: 35px;
+  margin: 3px;
   font-size: 1em;
-  width: 100px;
-  text-align: center;
+  text-align:center;
+}
+select{
+  width: 60px;
+  height: 30px;
+  padding: 0%;
 }
 
-span {
-  font-weight: bold;
+ .equal{
+  width: 50px;
+  height: 30px;
+  border-radius: 10%;
+  box-shadow:#0272b3 ;
+  background-color: #0668a1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+ }
+
+ .reset{ 
+ width: 160px;
+ height: 35px;
+ padding: 3px;
+ border-radius: 5%;
+ box-shadow:#0272b3 ;
+ background-color: #0668a1;
+ color: white;
+ border: none;
+ cursor: pointer;
+ text-align: center;
+ position:relative;
+ left: 865px;
+ margin-top: 10px;
+
+ }
+
+button:hover {
+  background-color: #0a72e0;
 }
 
 input[readonly] {
@@ -20,15 +54,8 @@ input[readonly] {
   border: 1px solid #ced4da;
 }
 
-button {
+.error {
   margin-top: 15px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
+  color: red;
+  font-weight: bold;
 }
